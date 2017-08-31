@@ -3,6 +3,12 @@
 /* @var $this yii\web\View */
 
 $this->title = 'Название сайта';
+
+echo "<pre>";
+print_r($dataProvider);
+
+die;
+
 ?>
 <div class="site-index">
 

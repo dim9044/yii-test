@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\PostSearch;
 use app\models\SignupForm;
 use Yii;
 use yii\filters\AccessControl;
@@ -62,7 +63,13 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $searchModel = new PostSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
     }
 
     /**
