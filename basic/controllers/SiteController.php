@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Post;
 use app\models\PostSearch;
 use app\models\SignupForm;
 use Yii;
@@ -63,14 +64,46 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+
         $searchModel = new PostSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        $top7 = $searchModel->searchForIndex();
+
+//        print_r($dataProvider->totalCount);
+//        die;
+
+	    $models = $dataProvider->getModels();
+
+//	    echo "<pre>";
+//	    print_r($dataProvider->sort);
+//
+//	    die;
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+	        'top7' => $top7,
         ]);
     }
+
+	/**
+	 * Creates a new Post model.
+	 * If creation is successful, the browser will be redirected to the 'view' page.
+	 * @return mixed
+	 */
+	public function actionCreate()
+	{
+		$model = new Post();
+
+		if ($model->load(Yii::$app->request->post()) && $model->save()) {
+			return $this->redirect(['view', 'id' => $model->id]);
+		} else {
+			return $this->render('post/create', [
+				'model' => $model,
+			]);
+		}
+	}
 
     /**
      * Login action.

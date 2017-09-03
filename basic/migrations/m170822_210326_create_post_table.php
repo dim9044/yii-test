@@ -20,7 +20,7 @@ class m170822_210326_create_post_table extends Migration
         $this->createTable('post', [
             'id' => $this->primaryKey(),
             'author_id' => $this->integer()->notNull(), //Автор
-            'date' => $this->integer()->notNull(),
+            'date' => $this->timestamp()->notNull(),
             'category_id' => $this->integer()->notNull(), //Номер категории
             'text' => $this->text()->notNull(),
             'title' => $this->string()->notNull()->unique(), // Название статьи

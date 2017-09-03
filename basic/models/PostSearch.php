@@ -41,6 +41,7 @@ class PostSearch extends Post
      */
     public function search($params)
     {
+
         $query = Post::find();
 
         // add conditions that should always apply here
@@ -71,5 +72,20 @@ class PostSearch extends Post
             ->andFilterWhere(['like', 'abridgment', $this->abridgment]);
 
         return $dataProvider;
+    }
+
+    public function searchForIndex ()
+    {
+    	$post = (new \yii\db\Query())
+		    ->select([])
+		    ->from('post')
+		    ->limit(7)
+		    ->all();
+
+//    	print_r($post);
+//    	die;
+
+	    return $post;
+
     }
 }

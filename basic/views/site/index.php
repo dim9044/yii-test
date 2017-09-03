@@ -4,10 +4,10 @@
 
 $this->title = 'Название сайта';
 
-echo "<pre>";
-print_r($dataProvider);
-
-die;
+//echo "<pre>";
+//print_r($dataProvider);
+//
+//die;
 
 ?>
 <div class="site-index">
@@ -88,10 +88,12 @@ die;
                         <div class="col-sm-16 col-md-10 col-lg-8">
 
                             <!-- carousel start -->
+<!--                         <-- тута-->
                             <div id="sync1" class="owl-carousel">
+                                <?php foreach ($top7 as $top)
+                                { ?>
                                 <div class="box item"> <a href="#">
-                                        <div class="carousel-caption">Republican budget leader Paul Ryan
-                                            faces key test in fiscal talks</div>
+                                        <div class="carousel-caption"><?php echo $top['abridgment'] ?></div>
                                         <img  src="images/banner-slider/slide-img-2.jpg" width="762" height="360" alt=""/>
                                         <div class="overlay"></div>
                                         <div class="overlay-info">
@@ -99,24 +101,27 @@ die;
                                                 <p class="cat-data"><span class="ion-flask"></span>business</p>
                                             </div>
                                             <div class="info">
-                                                <p><span class="ion-android-data"></span>Dec 16 2014<span class="ion-chatbubbles"></span>351</p>
+                                                <p><span class="ion-android-data"></span><?php echo $top['data'] ?><span class="ion-chatbubbles"></span>351</p>
                                             </div>
                                         </div>
                                     </a></div>
-                                <div class="box item"> <a href="about">
-                                        <div class="carousel-caption">Republican budget leader Paul Ryan
-                                            faces key test in fiscal talks</div>
-                                        <img   src="images/banner-slider/slide-img-3.jpg" width="762" height="360" alt=""/>
-                                        <div class="overlay"></div>
-                                        <div class="overlay-info">
-                                            <div class="cat">
-                                                <p class="cat-data"><span class="ion-model-s"></span>travel</p>
-                                            </div>
-                                            <div class="info">
-                                                <p><span class="ion-android-data"></span>Dec 16 2014<span class="ion-chatbubbles"></span>351</p>
-                                            </div>
-                                        </div>
-                                    </a></div>
+                                <?}?>
+
+
+<!--                                <div class="box item"> <a href="about">-->
+<!--                                        <div class="carousel-caption">Republican budget leader Paul Ryan-->
+<!--                                            faces key test in fiscal talks</div>-->
+<!--                                        <img   src="images/banner-slider/slide-img-3.jpg" width="762" height="360" alt=""/>-->
+<!--                                        <div class="overlay"></div>-->
+<!--                                        <div class="overlay-info">-->
+<!--                                            <div class="cat">-->
+<!--                                                <p class="cat-data"><span class="ion-model-s"></span>travel</p>-->
+<!--                                            </div>-->
+<!--                                            <div class="info">-->
+<!--                                                <p><span class="ion-android-data"></span>Dec 16 2014<span class="ion-chatbubbles"></span>351</p>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </a></div>-->
                             </div>
                             <div class="row">
                                 <div id="sync2" class="owl-carousel">
