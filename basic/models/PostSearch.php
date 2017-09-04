@@ -82,10 +82,18 @@ class PostSearch extends Post
 		    ->limit(7)
 		    ->all();
 
-//    	print_r($post);
-//    	die;
-
 	    return $post;
+    }
 
+    public function phraseOfDay ()
+    {
+        $phrases = (new \yii\db\Query())
+            ->select([])
+            ->from('phrase_of_day')
+            ->limit(5)
+            ->orderBy(['id_phrase' => SORT_DESC])
+            ->all();
+
+        return $phrases;
     }
 }

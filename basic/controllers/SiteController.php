@@ -70,9 +70,9 @@ class SiteController extends Controller
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         $top7 = $searchModel->searchForIndex();
+        $phraseOfDay = $searchModel->phraseOfDay();
 
-//        print_r($dataProvider->totalCount);
-//        die;
+
 
 	    $models = $dataProvider->getModels();
 
@@ -85,6 +85,7 @@ class SiteController extends Controller
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
 	        'top7' => $top7,
+	        'phraseOfDay' => $phraseOfDay
         ]);
     }
 

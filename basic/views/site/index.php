@@ -4,11 +4,6 @@
 
 $this->title = 'Название сайта';
 
-//echo "<pre>";
-//print_r($dataProvider);
-//
-//die;
-
 ?>
 <div class="site-index">
 
@@ -69,13 +64,9 @@ $this->title = 'Название сайта';
                     <div class="row">
                         <div class="col-sm-15"> <span class="ion-ios7-timer icon-news pull-left"></span>
                             <ul id="js-news" class="js-hidden">
-                                <li class="news-item"><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor</a></li>
-                                <li class="news-item"><a href="#">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium</a></li>
-                                <li class="news-item"><a href="#">Donec quam felis, ultricies nec, pellentesque eu</a></li>
-                                <li class="news-item"><a href="#">Nulla consequat massa quis enim. Donec pede justo, fringilla</a></li>
-                                <li class="news-item"><a href="#"> Donec pede justo, fringilla vel, aliquet nec, vulputate eget ultricies nec, pellentesque</a></li>
-                                <li class="news-item"><a href="#">In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo</a></li>
-                                <li class="news-item"><a href="#">Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis </a></li>
+                                <?php foreach ($phraseOfDay as $phrase) { ?>
+                                <li class="news-item"><a href="#"><?php echo $this->escape($phrase['text'])?></a></li>
+                                <?php } ?>
                             </ul>
                         </div>
                         <div class="col-sm-1 shuffle text-right"><a href="#"><span class="ion-shuffle"></span></a></div>
@@ -118,6 +109,8 @@ $this->title = 'Название сайта';
                                 </div>
                             </div>
                         </div>
+
+
                         <div class="col-sm-6 col-md-6 col-lg-8 hidden-sm hidden-xs">
                             <div class="row">
                                 <div class="col-lg-6 hidden-md"><a href="#">
