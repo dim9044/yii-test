@@ -580,4 +580,9 @@ class View extends \yii\base\View
 
         return empty($lines) ? '' : implode("\n", $lines);
     }
+
+    public function escape ($string)
+    {
+		return htmlspecialchars($string);
+    }
 }
