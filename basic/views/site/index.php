@@ -82,7 +82,7 @@ $this->title = 'Название сайта';
                             <div id="sync1" class="owl-carousel">
                                 <?php foreach ($top7 as $top)
                                 { ?>
-                                <div class="box item"> <a href="?r=site%2Fview&id=<?php echo $this->escape($top['id'])?>">
+                                <div class="box item"> <a href="?r=site%2Fview&id=<?php echo $this->escape($top['post_id'])?>">
                                         <div class="carousel-caption"><?php echo $this->escape($top['abridgment']) ?></div>
                                         <img  src="images/banner-slider/slide-img-2.jpg" width="762" height="360" alt=""/>
                                         <div class="overlay"></div>

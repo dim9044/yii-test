@@ -18,7 +18,7 @@ class m170822_210326_create_post_table extends Migration
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
         $this->createTable('post', [
-            'id' => $this->primaryKey(),
+            'post_id' => $this->primaryKey(),
             'author_id' => $this->integer()->notNull(), //Автор
             'date' => $this->timestamp()->notNull(),
             'category_id' => $this->text()->notNull(), //Номер категории

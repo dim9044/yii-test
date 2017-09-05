@@ -96,4 +96,15 @@ class PostSearch extends Post
 
         return $phrases;
     }
+
+    public function getPostById ($id)
+    {
+    	$post =  (new \yii\db\Query())
+		    ->select([])
+		    ->from('post')
+		    ->where(['post_id' => $id])
+		    ->all();
+
+    	return $post[0];
+    }
 }

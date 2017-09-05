@@ -67,14 +67,14 @@ class SiteController extends Controller
     {
 
         $searchModel = new PostSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+//        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         $top7 = $searchModel->searchForIndex();
         $phraseOfDay = $searchModel->phraseOfDay();
 
 
 
-	    $models = $dataProvider->getModels();
+//	    $models = $dataProvider->getModels();
 
 //	    echo "<pre>";
 //	    print_r($dataProvider->sort);
@@ -83,7 +83,7 @@ class SiteController extends Controller
 
         return $this->render('index', [
             'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+//            'dataProvider' => $dataProvider,
 	        'top7' => $top7,
 	        'phraseOfDay' => $phraseOfDay
         ]);
@@ -96,8 +96,14 @@ class SiteController extends Controller
 	 */
 	public function actionView($id)
 	{
-		return $this->render('post/view', [
+		$searchModel = new PostSearch();
+
+		$post = $searchModel->getPostById($id);
+
+
+		return $this->render('view', [
 			'model' => $this->findModel($id),
+			'post' => $post,
 		]);
 	}
 	/**
