@@ -64,8 +64,8 @@ $this->title = 'Название сайта';
                     <div class="row">
                         <div class="col-sm-15"> <span class="ion-ios7-timer icon-news pull-left"></span>
                             <ul id="js-news" class="js-hidden">
-                                <?php foreach ($phraseOfDay as $phrase) { ?>
-                                <li class="news-item"><a href="#"><?php echo $this->escape($phrase['text'])?></a></li>
+                                <?php foreach ($lastNews as $news) { ?>
+                                <li class="news-item"><a href="#"><?php echo $this->escape($news['abridgment'])?></a></li>
                                 <?php } ?>
                             </ul>
                         </div>
@@ -80,19 +80,19 @@ $this->title = 'Название сайта';
 
                             <!-- carousel start -->
                             <div id="sync1" class="owl-carousel">
-                                <?php foreach ($top7 as $top)
+                                <?php foreach ($currentNews as $news)
                                 { ?>
-                                <div class="box item"> <a href="?r=site%2Fview&id=<?php echo $this->escape($top['post_id'])?>">
-                                        <div class="carousel-caption"><?php echo $this->escape($top['abridgment']) ?></div>
+                                <div class="box item"> <a href="?r=site%2Fview&id=<?php echo $this->escape($news['post_id'])?>">
+                                        <div class="carousel-caption"><?php echo $this->escape($news['abridgment']) ?></div>
                                         <img  src="images/banner-slider/slide-img-2.jpg" width="762" height="360" alt=""/>
                                         <div class="overlay"></div>
                                         <div class="overlay-info">
                                             <div class="cat">
-                                                <p class="cat-data"><span class="ion-flask"></span><?php echo $this->escape($top['category_id']) ?></p>
+                                                <p class="cat-data"><span class="ion-flask"></span><?php echo $this->escape($news['category_id']) ?></p>
                                             </div>
                                             <div class="info">
                                                 <p>
-                                                    <span class="ion-android-data"></span><?php echo $this->escape($top['date']) ?>
+                                                    <span class="ion-android-data"></span><?php echo $this->escape($news['date']) ?>
 <!--                                                    <span class="ion-chatbubbles"></span>351-->
                                                 </p>
                                             </div>
@@ -102,7 +102,7 @@ $this->title = 'Название сайта';
                             </div>
                             <div class="row">
                                 <div id="sync2" class="owl-carousel">
-                                    <?php foreach ($top7 as $top)
+                                    <?php foreach ($currentNews as $news)
                                     {?>
                                     <div class="item"><img class="img-responsive" src="images/banner-slider/slide-img-2.jpg" width="762" height="360" alt=""/></div>
                                     <?php } ?>

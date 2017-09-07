@@ -69,7 +69,9 @@ class SiteController extends Controller
         $searchModel = new PostSearch();
 //        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        $top7 = $searchModel->searchForIndex();
+//        $top7 = $searchModel->searchForIndex();
+        $currentNews = $searchModel->getCurrentNews(); //
+        $lastNews = $searchModel->getLastNews();
         $phraseOfDay = $searchModel->phraseOfDay();
 
 
@@ -82,10 +84,11 @@ class SiteController extends Controller
 //	    die;
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
+//            'searchModel' => $searchModel,
 //            'dataProvider' => $dataProvider,
-	        'top7' => $top7,
-	        'phraseOfDay' => $phraseOfDay
+	        'phraseOfDay' => $phraseOfDay,
+	        'currentNews' => $currentNews,
+	        'lastNews' => $lastNews,
         ]);
     }
 

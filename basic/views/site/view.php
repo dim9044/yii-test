@@ -64,7 +64,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <!-- header end -->
         <!-- nav and search start -->
 <!--        <div class="nav-search-outer">-->
-<!--            <!-- nav start -->-->
+<!--            <!-- nav start -->
 <!---->
 <!--            <nav class="navbar navbar-inverse" role="navigation">-->
 <!--                <div class="container">-->
@@ -161,23 +161,23 @@ $this->params['breadcrumbs'][] = $this->title;
 <!--                        </form>-->
 <!--                    </div>-->
 <!--                </div>-->
-<!--                <!-- search end -->-->
+<!--                <!-- search end -->
 <!--            </nav>-->
-<!--            <!--nav end-->-->
+<!--            <!--nav end-->
 <!--        </div>-->
 
         <!-- nav and search end-->
         <!-- bage header Start -->
-        <div class="container">
-            <div class="page-header" style="margin-top: 50px">
-                <h1><?php echo $this->escape($post['title'])?> </h1>
+<!--        <div class="container">-->
+<!--            <div class="page-header" style="margin-top: 50px">-->
+<!--                <h1>--><?php //echo $this->escape($post['title'])?><!--</h1>-->
 <!--                <ol class="breadcrumb">-->
 <!--                    <li><a href="#">Home</a></li>-->
 <!--                    <li><a href="#">Pages</a></li>-->
 <!--                    <li class="active">Section Topic Details</li>-->
 <!--                </ol>-->
-            </div>
-        </div>
+<!--            </div>-->
+<!--        </div>-->
         <!-- bage header End -->
         <!-- data Start -->
         <section>
@@ -189,15 +189,15 @@ $this->params['breadcrumbs'][] = $this->title;
                             <!-- post details start -->
                             <div class="col-sm-16">
                                 <div class="row">
-                                    <div class="sec-topic col-sm-16  wow fadeInDown animated " data-wow-delay="0.5s">
+                                    <div class="sec-topic col-sm-16  wow fadeInDown animated "  data-wow-delay="0.5s">
                                         <div class="row">
-                                            <div class="col-sm-16"> <img width="1000" height="606" alt="" src="images/sec/sec-3.jpg" class="img-thumbnail"> </div>
+                                            <div class="col-sm-16" style="margin:0 auto;"> <img width="600" height="606" src="images/sec/sec-3.jpg"  class="img-thumbnail"> </div>
                                             <div class="col-sm-16 sec-info">
-                                                <h3>Air Force Base Airmen supporting the Operation Noble Eagle alert mission</h3>
+                                                <h3><?php echo $this->escape($post['title'])?></h3>
                                                 <div class="text-danger sub-info-bordered">
-                                                    <div class="author"><span class="ion-person icon"></span>By: Roman Polyarush</div>
-                                                    <div class="time"><span class="ion-android-data icon"></span>Dec 9 2014</div>
-                                                    <div class="comments"><span class="ion-chatbubbles icon"></span>204</div>
+                                                    <div class="author"><span class="ion-person icon"></span>Автор: <?php echo $this->escape($post['last_name'] . " " . $post['first_name'])?></div>
+                                                    <div class="time"><span class="ion-android-data icon"></span><?php echo $this->escape($post['date_created'])?></div>
+<!--                                                    <div class="comments"><span class="ion-chatbubbles icon"></span>204</div>-->
                                                     <div class="stars"><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star-half"></span></div>
                                                 </div>
                                                 <p><span class="letter-badge">L</span>orem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.

@@ -74,17 +74,43 @@ class PostSearch extends Post
         return $dataProvider;
     }
 
-    public function searchForIndex ()
+    /**
+     * Возвращает главные новости (отображаются в первом левом блоке)
+     * @return array
+     */
+    public function getCurrentNews ()
     {
     	$post = (new \yii\db\Query())
 		    ->select([])
 		    ->from('post')
+            ->where(['is_current' => 1, 'status' => 'publish', 'is_deleted' => 0])
 		    ->limit(7)
 		    ->all();
 
 	    return $post;
     }
 
+    /**
+     * Возвращает послежниее новости (бегущая строка)
+     * @return array
+     */
+    public function getLastNews ()
+    {
+        $post = (new \yii\db\Query())
+            ->select([])
+            ->from('post')
+            ->where(['status' => 'publish', 'is_deleted' => 0])
+            ->orderBy(['date_created' => SORT_DESC])
+            ->limit(10)
+            ->all();
+
+        return $post;
+    }
+
+    /**
+     * Возвращает фразы
+     * @return array
+     */
     public function phraseOfDay ()
     {
         $phrases = (new \yii\db\Query())
@@ -97,14 +123,25 @@ class PostSearch extends Post
         return $phrases;
     }
 
+    /**
+     * Возвращает новость по id
+     * @param $id
+     * @return mixed
+     */
     public function getPostById ($id)
     {
     	$post =  (new \yii\db\Query())
 		    ->select([])
 		    ->from('post')
-		    ->where(['post_id' => $id])
+		    ->where(['post_id' => $id, 'status' => 'publish', 'is_deleted' => 0])
 		    ->all();
 
-    	return $post[0];
+    	$authorInfo = (new \yii\db\Query())
+            ->select(['first_name', 'last_name'])
+            ->from('authors')
+            ->where(['author_id' => $post[0]['author_id']])
+            ->all();
+
+    	return array_merge($post[0], $authorInfo[0]);
     }
 }
